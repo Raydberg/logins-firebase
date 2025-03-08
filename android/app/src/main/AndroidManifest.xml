@@ -24,8 +24,9 @@
         <action android:name="android.intent.action.VIEW"/>
         <category android:name="android.intent.category.DEFAULT"/>
         <category android:name="android.intent.category.BROWSABLE"/>
-        <data android:scheme="myapp"/>
-        <data android:scheme="com.anonymous.loginsfirebase"/>
+        <data android:scheme="logins-firebase"/>
+        <data android:scheme="com.raydev.loginsfirebase"/>
+        <data android:scheme="exp+logins-firebase"/>
       </intent-filter>
     </activity>
   </application>

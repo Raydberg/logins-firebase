@@ -86,9 +86,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace 'com.anonymous.loginsfirebase'
+    namespace 'com.raydev.loginsfirebase'
     defaultConfig {
-        applicationId 'com.anonymous.loginsfirebase'
+        applicationId 'com.raydev.loginsfirebase'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

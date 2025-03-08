@@ -1,4 +1,4 @@
-package com.anonymous.loginsfirebase
+package com.raydev.loginsfirebase
 
 import android.app.Application
 import android.content.res.Configuration

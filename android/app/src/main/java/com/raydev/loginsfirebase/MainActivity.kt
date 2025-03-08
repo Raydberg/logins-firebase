@@ -1,4 +1,4 @@
-package com.anonymous.loginsfirebase
+package com.raydev.loginsfirebase
 import expo.modules.splashscreen.SplashScreenManager
 
 import android.os.Build
