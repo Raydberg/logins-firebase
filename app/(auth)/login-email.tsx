@@ -1,20 +1,26 @@
-import { View, Text, Pressable, TextInput } from 'react-native'
+import { View, Text, TextInput, Pressable } from 'react-native'
 import React, { useState } from 'react'
 import { router } from 'expo-router'
 import { Feather } from '@expo/vector-icons'
+import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { auth } from '@/firebaseConfig'
 import { useEmailAuth } from '@/hooks/useEmailAuth'
 
-const RegisterScreen = () => {
+const LoginEmailScreen = () => {
     const [email, setEmail] = useState<string>('')
     const [password, setPassword] = useState<string>('')
-    const { handleCreateCount } = useEmailAuth({
+
+    const { handleSignIn } = useEmailAuth({
         email: email,
         password: password
     })
+
+
+
     return (
         <View className=' mt-12 p-5'>
             <View className='flex flex-row justify-between'>
-                <Text>Register your Count </Text>
+                <Text>LoginEmailScreen</Text>
                 <Pressable
                     onPress={() => router.back()}
                     className='overflow-hidden rounded-2xl '
@@ -37,12 +43,12 @@ const RegisterScreen = () => {
                 <TextInput placeholder='Ingresa tu contraseña' onChangeText={(password) => setPassword(password)} />
             </View>
             <Pressable
-                onPress={handleCreateCount}
+                onPress={handleSignIn}
                 className='overflow-hidden rounded-2xl '
             >
                 <View className="bg-blue-500 py-4 px-5 flex-row items-center justify-center">
                     <Text className="font-bold text-sm ml-4 text-white">
-                        Create Count
+                        Sign In
                     </Text>
                 </View>
             </Pressable>
@@ -50,4 +56,4 @@ const RegisterScreen = () => {
     )
 }
 
-export default RegisterScreen
+export default LoginEmailScreen

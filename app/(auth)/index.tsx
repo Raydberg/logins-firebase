@@ -1,5 +1,5 @@
 import { View, Text, SafeAreaView, Pressable } from 'react-native'
-import React, { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { AntDesign, Ionicons, Feather } from '@expo/vector-icons'
 import { useRouter } from 'expo-router'
 import { useGoogleAuth } from '@/hooks/useGoogleAuth'
@@ -18,7 +18,7 @@ const SignInScreen = () => {
     const cardBg = isDark ? 'bg-gray-800' : 'bg-white'
     const dividerColor = isDark ? 'bg-gray-700' : 'bg-gray-200'
 
-    React.useEffect(() => {
+    useEffect(() => {
         if (userInfo) {
             router.replace('/(app)')
         }
@@ -53,7 +53,7 @@ const SignInScreen = () => {
                 <Ionicons name='logo-firebase' size={90} color="#FFA611" />
                 <Text className={`text-3xl font-bold mt-6 ${textColor}`}>Welcome Back</Text>
                 <Text className={`text-sm mt-3 ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
-                    Choose your preferred sign-in method
+                    Autenticate con :
                 </Text>
             </View>
 
@@ -67,7 +67,7 @@ const SignInScreen = () => {
                     <View className="bg-black py-4 px-5 flex-row items-center justify-center">
                         <AntDesign name='google' size={22} color="white" />
                         <Text className="font-bold text-base ml-4 text-white">
-                            Continue with Google
+                            Continua con Google
                         </Text>
                     </View>
                 </Pressable>
@@ -81,7 +81,7 @@ const SignInScreen = () => {
                     <View className="bg-black py-4 px-5 flex-row items-center justify-center">
                         <AntDesign name='github' size={22} color="white" />
                         <Text className="font-bold text-base ml-4 text-white">
-                            Continue with GitHub
+                            Continua con GitHub
                         </Text>
                     </View>
                 </Pressable>
@@ -95,9 +95,7 @@ const SignInScreen = () => {
                 </View>
 
                 <Pressable
-                    onPress={() => handleLogin('email')}
-                    onPressIn={() => handlePressIn('email')}
-                    onPressOut={handlePressOut}
+                    onPress={() => router.push('/(auth)/login-email')}
                     className={`overflow-hidden rounded-2xl ${pressedButton === 'email' ? 'opacity-80 scale-95' : ''}`}
                 >
                     <View className="bg-blue-500 py-4 px-5 flex-row items-center justify-center">
@@ -111,12 +109,12 @@ const SignInScreen = () => {
 
             <View className="mt-10">
                 <Text className={`text-center ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
-                    Don't have an account?{' '}
-                    <Text 
+                    No tienes una cuenta?{' '}
+                    <Text
                         className={`font-bold ${isDark ? 'text-blue-400' : 'text-blue-600'}`}
                         onPress={() => router.push('/(auth)/register')}
                     >
-                        Sign up
+                        Registrate
                     </Text>
                 </Text>
             </View>

@@ -8,7 +8,7 @@ import 'react-native-reanimated';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
 import '../global.css'
-// Prevent the splash screen from auto-hiding before asset loading is complete.
+import { AuthProvider } from '../context/auth-provider';
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
@@ -28,15 +28,17 @@ export default function RootLayout() {
   }
 
   return (
+    <AuthProvider>
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack screenOptions={{ headerShown: false }}>
         <Stack.Screen name="index" />
-        <Stack.Screen name="(auth)" />
-        <Stack.Screen name="(app)" />
-        <Stack.Screen name="(tabs)" />
+        <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+        <Stack.Screen name="(app)" options={{ headerShown: false }} />
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" options={{ headerShown: true, title: 'Oops!' }} />
       </Stack>
       <StatusBar style="auto" />
     </ThemeProvider>
+  </AuthProvider>
   );
 }
